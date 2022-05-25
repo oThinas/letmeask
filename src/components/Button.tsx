@@ -9,11 +9,10 @@ export function Button() {
 
 	return (
     <div>
+      O tanto que te amo: 
       <button onClick={increment}>
         {counter}
       </button> 
-      <br /> 
-      <br />
     </div>
   )
 }
