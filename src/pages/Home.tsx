@@ -23,9 +23,16 @@ export function Home() {
           </button>
           <div className='separator'>ou entre em uma sala</div>
           <form>
+            <label
+              htmlFor="id-room"
+              className='sr-only'
+            >
+             Digite o código da sala 
+            </label>
             <input 
               type="text"
               placeholder="Digite o código da sala"
+              id='id-room'
             />
             <Button type="submit">
               Entrar na sala
