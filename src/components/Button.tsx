@@ -1,18 +1,12 @@
-import { useState } from "react";
+// Permite passar como parâmetro qualquer atributo que uma tag html <button> pode receber
+import { ButtonHTMLAttributes } from 'react'
 
-export function Button() {
-	const [counter, setCounter] = useState(0)
+import '../styles/button.scss'
 
-	function increment() {
-		setCounter(counter + 1);
-	}
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
+export function Button(props: ButtonProps) {
 	return (
-    <div>
-      O tanto que te amo: 
-      <button onClick={increment}>
-        {counter}
-      </button> 
-    </div>
+    <button className="button" {...props} />
   )
 }
