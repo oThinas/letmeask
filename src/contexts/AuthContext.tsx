@@ -35,11 +35,11 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
           throw new Error('Missing information from Google Account.')
         }
 
-      setUser({
-        id: uid,
-        name: displayName!, // O operador "!" indica que a variável não pode ser "null"
-        avatar: photoURL! // O operador "!" indica que a variável não pode ser "null"
-      })
+        setUser({
+          id: uid,
+          name: displayName!, // O operador "!" indica que a variável não pode ser "null"
+          avatar: photoURL! // O operador "!" indica que a variável não pode ser "null"
+        })
       }
     })
 
