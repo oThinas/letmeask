@@ -53,7 +53,7 @@ export function Home() {
             Crie sua sala com o Google
           </button>
           <div className='separator'>ou entre em uma sala</div>
-          <form onSubmit={handleJoinRoom}>
+          <form onSubmit={handleJoinRoom} autoComplete="off">
             <label
               htmlFor="id-room"
               className='sr-only'

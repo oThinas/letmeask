@@ -10,7 +10,7 @@
       justify-content: space-between;
       align-items: center;
 
-      > img {
+      > a img {
         max-height: 4.5rem;
         margin-right: 1.6rem;
       }
@@ -25,6 +25,7 @@
       margin: 3.2rem 0 2.4rem;
       display: flex;
       align-items: center;
+      justify-content: space-between;
 
       h1 {
         font-family: 'Poppins', sans-serif;
@@ -55,13 +56,35 @@
         min-height: 13rem;
       }
 
+      textarea:focus {
+        outline-color: #835afd;
+      }
+
       .form-footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-top: 1.6rem;
 
-        span {
+        .user-info {
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 3.2rem;
+            height: 3.2rem;
+            border-radius: 50%;
+          }
+
+          span {
+            margin-left: 0.8rem;
+            color: #29292e;
+            font-weight: 500;
+            font-size: 1.4rem;
+          }
+        }
+
+        > span {
           font-size: 1.4rem;
           color: #737380;
           font-weight: 500;

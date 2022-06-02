@@ -43,7 +43,7 @@ export function NewRoom() {
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
           <h2>Criar uma nova sala</h2>
-          <form onSubmit={handleCreateRoom}>
+          <form onSubmit={handleCreateRoom} autoComplete="off">
             <label
               htmlFor="id-name"
               className='sr-only'
