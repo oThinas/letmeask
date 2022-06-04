@@ -46,7 +46,7 @@ export function Room() {
   useEffect(() => {
     const roomRef = database.ref(`rooms/${roomId}`);
 
-    // Documentação Firebase
+    // Documentação Firebase. Atua como um eventListener
     roomRef.on('value', room => {
       const databaseRoom = room.val();
       const firebaseQuestions : FirebaseQuestions = databaseRoom.questions ?? {};
@@ -122,7 +122,7 @@ export function Room() {
           <div className="form-footer">
             { user ? (
               <div className='user-info'>
-                <img src={user.avatar} alt={user.name} />
+                <img src={user.avatar} alt={"Foto de perfil de " + user.name} />
                 <span>{user.name}</span>
               </div>
             ) : (
@@ -132,7 +132,7 @@ export function Room() {
           </div>
         </form>
 
-        {JSON.stringify(questions)}
+        {/* {JSON.stringify(questions)} */}
       </main>
     </div>
   );

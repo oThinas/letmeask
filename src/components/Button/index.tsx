@@ -1,7 +1,7 @@
 // Permite passar como parâmetro qualquer atributo que uma tag html <button> pode receber
 import { ButtonHTMLAttributes } from 'react'
 
-import '../styles/button.scss'
+import './style.scss'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 

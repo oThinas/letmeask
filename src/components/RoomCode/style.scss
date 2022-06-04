@@ -13,6 +13,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #6f4bd8;
+    }
   }
 
   span {
