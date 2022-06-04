@@ -11,17 +11,18 @@ type RoomCodeProps = {
 export function RoomCode(props: RoomCodeProps) {
   function copyRoomCodeToClipBoard() {
     navigator.clipboard.writeText(props.code);
-    const notify = () => toast.success('Copiado para a área de transferência!', {
+    
+    // Documentação Toast
+    toast.success('Copiado para a área de transferência!', {
       iconTheme: {
         primary: '#835afd',
         secondary: 'white',
       },
       style: {
-        fontFamily: "'Roboto', sans-serif;",
-        fontWeight: "500"
+        fontFamily: '"Roboto", sans-serif',
+        fontWeight: '500'
       }
     });
-    notify();
   }
   
   return (

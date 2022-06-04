@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { Button } from '../components/Button';
 import { RoomCode } from '../components/RoomCode';
+import { Question } from '../components/Question';
 import { database } from '../services/firebase';
 import { Toaster } from 'react-hot-toast';
 
@@ -24,7 +25,7 @@ type FirebaseQuestions = Record<string, {
   isHighlighted: boolean;
 }>
 
-type Question = {
+type QuestionType = {
   id: string;
   author: {
     name: string;
@@ -41,7 +42,7 @@ export function Room() {
   const roomId = params.id
 
   const [newQuestion, setNewQuestion] = useState("");
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [title, setTitle] = useState("");
 
   useEffect(() => {
@@ -98,7 +99,6 @@ export function Room() {
           <RoomCode code={roomId!}/>
         </div>
       </header>
-
       <main>
         <div className="room-title">
           <h1>Sala: {title}</h1>
@@ -132,8 +132,19 @@ export function Room() {
             <Button type='submit' disabled={!user}>Enviar pergunta</Button>
           </div>
         </form>
-
-        {/* {JSON.stringify(questions)} */}
+        
+        {/* O método map() é um for each que retorna algo */}
+        <div className='question-list'>
+          {questions.map(question => {
+            return (
+              <Question
+                key={question.id}
+                content={question.content}
+                author={question.author}
+              />
+            );
+          })}
+        </div>
       </main>
 
       <Toaster />

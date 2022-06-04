@@ -51,7 +51,7 @@
         padding: 1.6rem;
         border-radius: 0.8rem;
         background: #fefefe;
-        box-shadow: 0 0.2rem 1.2rem rgba(0, 0, 0, 0.04);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         resize: vertical;
         min-height: 13rem;
 
@@ -101,6 +101,10 @@
           }
         }
       }
+    }
+
+    .question-list {
+      margin-top: 3.2rem;
     }
   }
 }
