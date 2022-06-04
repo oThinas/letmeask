@@ -4,6 +4,7 @@ import { useAuth } from '../hooks/useAuth';
 import { Button } from '../components/Button';
 import { RoomCode } from '../components/RoomCode';
 import { database } from '../services/firebase';
+import { Toaster } from 'react-hot-toast';
 
 import logoImg from '../assets/images/logo.svg';
 
@@ -134,6 +135,8 @@ export function Room() {
 
         {/* {JSON.stringify(questions)} */}
       </main>
+
+      <Toaster />
     </div>
   );
 }
