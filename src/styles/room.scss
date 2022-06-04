@@ -14,6 +14,20 @@
         max-height: 4.5rem;
         margin-right: 1.6rem;
       }
+
+      .buttons {
+        display: flex;
+        gap: 1.6rem;
+
+        button {
+          height: 4rem;
+
+          > img {
+            visibility: hidden;
+            display: none;
+          }
+        }
+      }
     }
   }
 
@@ -119,6 +133,28 @@
 
 @media (max-width: 430px) {
   #page-room {
+    header {
+      .content {
+        .buttons {
+          button {
+            width: 4rem;
+            padding: 0;
+
+            > img {
+              visibility: initial;
+              display: block;
+              margin-right: 0;
+            }
+
+            span {
+              visibility: hidden;
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
     main {
       .room-title {
         flex-direction: column;

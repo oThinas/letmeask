@@ -16,7 +16,20 @@
     margin-right: 0.8rem;
   }
 
-  &:not(:disabled):hover {
+  &.outlined {
+    background: #fff;
+    border: 1px solid #835afd;
+    color: #835afd;
+    transition: all 0.2s;
+
+    &:hover {
+      background: #f8f8f8;
+      border-color: #6f4bd8;
+      color: #6f4bd8;
+    }
+  }
+
+  &:not(:disabled, .outlined):hover {
     background: #6f4bd8;
   }
 
