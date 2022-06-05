@@ -31,7 +31,14 @@ export function Home() {
     
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
     if (!roomRef.exists()){
+      // TODO: Implementar Toast
       alert('Room doesn\'t exist.')
+      return;
+    }
+
+    if (roomRef.val().closedAt) {
+      // TODO: Implementar Toast
+      alert('Room already closed.')
       return;
     }
 

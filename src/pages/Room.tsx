@@ -115,7 +115,6 @@ export function Room() {
                   className={`like-button ${question.likeId && 'liked'}`}
                   type='button'
                   aria-label='Marcar como "gostei"' // Acessibilidade
-                  title='Marcar como "gostei"'
                   onClick={() => handleLikeQuestion(question.id, question.likeId)} // Função passada no atributo quando essa possui parâmetros 
                   >
                   {/* Para trocar a cor do svg (stroke) */}
