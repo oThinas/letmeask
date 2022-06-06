@@ -29,7 +29,7 @@
     }
   }
 
-  &:not(:disabled, .outlined):hover {
+  &:not(:disabled, .outlined, .red, .gray):hover {
     background: #6f4bd8;
   }
 
@@ -37,4 +37,24 @@
     opacity: 0.6;
     cursor: not-allowed;
   }
+
+  &.red {
+    background: #e73f5d;
+    transition: background 0.2;
+
+    &:hover {
+      background: #d73754;
+    }
+  }
+
+  &.gray {
+    background: #dbdcdd;
+    transition: background 0.2;
+    color: #737380;
+
+    &:hover {
+      background: #cecece;
+    }
+  }
+
 }

@@ -9,6 +9,7 @@ import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
 
 import '../styles/auth.scss';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 export function Home() {
@@ -31,14 +32,30 @@ export function Home() {
     
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
     if (!roomRef.exists()){
-      // TODO: Implementar Toast
-      alert('Room doesn\'t exist.')
+      toast.error('Sala não encontrada!', {
+        iconTheme: {
+          primary: '#e73f5d',
+          secondary: 'white',
+        },
+        style: {
+          fontFamily: '"Roboto", sans-serif',
+          fontWeight: '500'
+        }
+      });
       return;
     }
 
     if (roomRef.val().closedAt) {
-      // TODO: Implementar Toast
-      alert('Room already closed.')
+      toast.error('A sala foi fechada pelo administrador!', {
+        iconTheme: {
+          primary: '#e73f5d',
+          secondary: 'white',
+        },
+        style: {
+          fontFamily: '"Roboto", sans-serif',
+          fontWeight: '500'
+        }
+      });
       return;
     }
 
@@ -80,6 +97,8 @@ export function Home() {
           </form>
         </div>
       </main>
+
+      <Toaster />
     </div>
   )
 }

@@ -1,9 +1,8 @@
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useRoom } from '../hooks/useRoom';
 import { Button } from '../components/Button';
 import { RoomCode } from '../components/RoomCode';
 import { Question } from '../components/Question';
-import { database } from '../services/firebase';
 import { Toaster } from 'react-hot-toast';
 
 import logoImg from '../assets/images/logo.svg';
@@ -12,6 +11,8 @@ import deleteImg from '../assets/images/delete.svg'
 
 import '../styles/room.scss';
 import '../components/Question/style.scss';
+import { Modal } from '../components/Modal';
+import { useState } from 'react';
 
 type RoomParams = {
   id: string;
@@ -22,21 +23,24 @@ export function AdminRoom() {
   const roomId = params.id
   
   const { title, questions } = useRoom(roomId!);
+
+  const [modalIsShow, setModalIsShow] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
+  const [modalHasSubtitle, setModalHasSubtitle] = useState(false);
+  const [modalAction, setModalAction] = useState("");
   
-  const navigate = useNavigate();
-  async function handleEndRoom() {
+  function handleOpenModal(isCloseRoom: boolean) {
     // TODO: Implementar Modal
-    await database.ref(`rooms/${roomId}`).update({
-      closedAt: new Date(),
-    });
-
-    navigate('/');
-  }
-
-  async function handleDeleteQuestion(questionId: string) {
-    // TODO: Implementar Modal
-    if (window.confirm("Tem certeza que você deseja excluir esta pergunta?"))
-      await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
+    setModalIsShow(true);
+    if (isCloseRoom) {
+      setModalTitle("Encerrar sala");
+      setModalHasSubtitle(true);
+      setModalAction("encerrar")
+    } else {
+      setModalTitle("Excluir pergunta");
+      setModalHasSubtitle(false);
+      setModalAction("excluir")
+    }
   }
 
   return (
@@ -48,7 +52,7 @@ export function AdminRoom() {
           </Link>
           <div className="buttons">
             <RoomCode code={roomId!}/>
-            <Button isOutlined onClick={handleEndRoom}>
+            <Button isOutlined onClick={() => handleOpenModal(true)}>
               <img src={closeImg} alt="Ícone de encerrar sala. Letra X." />
               <span>Encerrar sala</span>
             </Button>
@@ -80,7 +84,7 @@ export function AdminRoom() {
               >
                 <button
                   type="button"
-                  onClick={() => handleDeleteQuestion(question.id)}
+                  onClick={() => handleOpenModal(false)}
                 >
                   <img src={deleteImg} alt="Ícone de lixo em vermelho. Remover pergunta." />
                 </button>
@@ -91,6 +95,13 @@ export function AdminRoom() {
       </main>
 
       <Toaster />
+      <Modal
+        isShow={modalIsShow}
+        title={modalTitle}
+        hasSubtitle={modalHasSubtitle}
+        action={modalAction}
+        handleCloseModal={async () => setModalIsShow(false)}
+      />
     </div>
   );
 }
