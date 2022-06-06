@@ -9,6 +9,20 @@
   height: 100vh;
   width: 100vw;
 
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+
+  &.show {
+    opacity: 1;
+    pointer-events: visible;
+
+    .modal-box {
+      transition: all 0.2s ease-in-out;
+      transform: translateY(0);
+    }
+  }
+
   .modal-box {
     width: min(59rem, 90%);
     background: #fff;
@@ -16,6 +30,8 @@
     text-align: center;
     padding: 6.4rem;
     margin: auto;
+    transform: translateY(-100vh);
+
 
     > img {
       margin-bottom: 2.4rem;

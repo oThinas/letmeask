@@ -66,7 +66,7 @@ export function Home() {
     <div id="page-auth">
       <aside>
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
-        <strong>Toda pergunta tem uma resposta.</strong>
+        <strong>Toda pergunta tem uma <span>resposta.</span></strong>
         <p>Aprenda e compartilhe conhecimento com outras pessoas</p>
       </aside>
       <main>

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 import closeRoomImg from '../../assets/images/close-room.svg'
@@ -18,7 +19,6 @@ type ModalProps = {
 type RoomParams = {
   id: string;
 }
-
 
 export function Modal(props: ModalProps) {
   const params = useParams<RoomParams>();
@@ -46,46 +46,30 @@ export function Modal(props: ModalProps) {
     });
   }
 
-  async function handleDeleteQuestion(questionId: string) {
-    props.handleCloseModal();
-
-    await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
-
-    toast.success('Pergunta apagada!', {
-      iconTheme: {
-        primary: '#835afd',
-        secondary: 'white',
-      },
-      style: {
-        fontFamily: '"Roboto", sans-serif',
-        fontWeight: '500'
-      }
-    });
+  const closeOnEspaceKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      props.handleCloseModal();
+    }
   }
 
-  function handleAction() {
-    if (props.hasSubtitle)
-      handleEndRoom()
-    // else 
-    //  handleDeleteQuestion(TODO: Descobrir como retornar o id/key da  pergunta)
-  }
-  
+  useEffect(() => {
+    document.body.addEventListener('keydown', closeOnEspaceKeyDown);
+    return function cleanup() {
+    document.body.removeEventListener('keydown', closeOnEspaceKeyDown);
+    }
+  })
 
-  if (props.isShow) {
-    return (
-      <div className="modal">
-        <div className="modal-box">
-          <img src={closeRoomImg} alt='Um "X" vermelho dentro de um círculo vermelho sinalizando o fechamento da sala.' />
-          <h2>{props.title}</h2>
-          <p className={(props.hasSubtitle ? "" : "hidden")}>Tem certeza que você deseja encerrar esta sala?</p>
-          <div className="buttons">
-            <Button isGray onClick={props.handleCloseModal}>Cancelar</Button>
-            <Button isRed onClick={handleAction}>Sim, {props.action}</Button>
-          </div>
+  return (
+    <div className={`modal ${props.isShow ? 'show' : ''}`} onClick={props.handleCloseModal}>
+      <div className="modal-box" onClick={e => e.stopPropagation()}>
+        <img src={closeRoomImg} alt='Um "X" vermelho dentro de um círculo vermelho sinalizando o fechamento da sala.' />
+        <h2>{props.title}</h2>
+        <p className={(props.hasSubtitle ? "" : "hidden")}>Tem certeza que você deseja encerrar esta sala?</p>
+        <div className="buttons">
+          <Button isGray onClick={props.handleCloseModal}>Cancelar</Button>
+          <Button isRed onClick={handleEndRoom}>Sim, {props.action}</Button>
         </div>
       </div>
-    );
-  } else {
-    return null;
-  }
+    </div>
+  );
 }

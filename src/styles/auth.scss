@@ -131,3 +131,50 @@
     }
   }
 }
+
+@media (max-width: 850px){
+  #page-auth {
+    flex-direction: column;
+
+    aside {
+      text-align: center;
+      padding: 3rem;
+      padding-top: 0;
+      color: #29292E;
+      background: transparent;
+      position: relative;
+      top: 4.5rem;
+
+      img {
+        display: none;
+        visibility: hidden;
+      }
+      
+      strong {
+        font-size: 4rem;
+
+        span {
+          color: #835afd;
+        }
+      }
+
+      p {
+        font-size: 2rem;
+        color: #737380;
+      }
+    }
+
+    main {
+      flex: 1;
+      .main-content {
+        position: relative;
+        top: -8.5rem;
+
+        > img {
+          position: absolute;
+          top: -30rem;
+        }
+      }
+    }
+  }
+}
