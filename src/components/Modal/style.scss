@@ -16,11 +16,6 @@
   &.show {
     opacity: 1;
     pointer-events: visible;
-
-    .modal-box {
-      transition: all 0.2s ease-in-out;
-      transform: translateY(0);
-    }
   }
 
   .modal-box {
@@ -30,8 +25,6 @@
     text-align: center;
     padding: 6.4rem;
     margin: auto;
-    transform: translateY(-100vh);
-
 
     > img {
       margin-bottom: 2.4rem;
@@ -58,6 +51,19 @@
       gap: 0.8rem;
       align-items: center;
       justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    .modal-box {
+      .buttons {
+        position: relative;
+        left: -2.7rem;
+        justify-content: unset;
+        width: 30rem;
+      }
     }
   }
 }
