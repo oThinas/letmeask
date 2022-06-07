@@ -32,8 +32,8 @@ Esse projeto foi desenvolvido com:
   
 Para contribuir, clone o projeto e acesse a pasta:
 ```bash
-$ git clone https://github.com/rocketseat-education/nlw-06-reactjs
-$ cd nlw-06-reactjs
+$ git clone https://github.com/oThinas/letmeask
+$ cd letmeask
 ```
   
 Instale as dependências e inicie o projeto:
