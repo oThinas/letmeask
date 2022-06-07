@@ -135,6 +135,8 @@
 @media (max-width: 850px){
   #page-auth {
     flex-direction: column;
+    gap: 4rem;
+    margin-top: 4rem;
 
     aside {
       text-align: center;
@@ -142,8 +144,6 @@
       padding-top: 0;
       color: #29292E;
       background: transparent;
-      position: relative;
-      top: 4.5rem;
 
       img {
         display: none;
@@ -166,13 +166,13 @@
 
     main {
       flex: 1;
+
       .main-content {
         position: relative;
         top: -7rem;
 
-        > img {
-          position: absolute;
-          top: -33rem;
+        .create-room {
+          margin-top: 3.6rem;
         }
       }
     }
