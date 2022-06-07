@@ -8,6 +8,23 @@
   & + .question {
     margin-top: 0.8rem;
   }
+  
+  &.highlighted {
+    background: #f4f0ff;
+    border: 0.1rem solid #835afd;
+    
+    footer {
+      .user-info {
+        span {
+          color: #29292e;
+        }
+      }
+    }
+  }
+
+  &.answered {
+    background: #dbdcdd;
+  }
 
   p {
     color: #29292e;
@@ -37,32 +54,59 @@
     }
   }
 
-  .actions button {
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    transition: filter 0.2s;
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
 
-    &.like-button {
-      display: flex;
-      align-items: center;
-      color: #737380;
-      gap: 0.8rem;
+    button {
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      transition: filter 0.2s;
+      height: 2.4rem;
+  
+      &.like-button {
+        display: flex;
+        align-items: center;
+        color: #737380;
+        gap: 0.8rem;
 
-      &.liked {
-        color: #835afd;
-
-        svg {
-          transition: filter 0.2s;
-
-          path {
-            stroke: #835afd;
+        &.admin {
+          cursor: default;
+        }
+  
+        &.liked {
+          color: #835afd;
+  
+          svg {
+            transition: filter 0.2s;
+  
+            path {
+              stroke: #835afd;
+            }
           }
         }
       }
+      &:hover {
+        filter: brightness(0.7);
+      }
     }
-    &:hover {
-      filter: brightness(0.7);
+  }
+}
+
+@media (max-width: 500px) {
+  .question {
+    footer {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: baseline;
+      gap: 1.6rem;
+
+      .actions {
+        width: 100%;
+        justify-content: flex-end;
+      }
     }
   }
 }
