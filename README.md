@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img alt"Home page" src="https://github.com/oThinas/letmeask/blob/master/.github/home.png" />
+  <img alt"Home page" src="https://github.com/oThinas/letmeask/blob/master/.github/1.png" />
 </p>
 
 ## 📷 Galeria
