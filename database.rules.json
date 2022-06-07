@@ -1,0 +1,20 @@
+{
+  "rules": {
+    "rooms": {
+      ".read": false,
+      ".write": "auth != null",
+      "$roomId": {
+        ".read": true,
+        ".write": "auth != null && (data.child('authorId').val() == auth.id || !data.exists())",
+        "questions": {
+          ".read": true,
+          ".write": "auth != null && (data.parent().child('authorId').val() == auth.id || !data.exists())",
+          "likes": {
+            ".read": true,
+            ".write": "auth != null && (data.child('authorId').val() == auth.id || !data.exists())"
+          }
+        }
+      }
+    }
+  }
+}
