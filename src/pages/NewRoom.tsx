@@ -41,7 +41,7 @@ export function NewRoom() {
     });
 
     // Retorna o id da sala do firebase
-    navigate(`/rooms/${firebaseRoom.key}`)
+    navigate(`/admin/rooms/${firebaseRoom.key}`)
   }
 
   return (
