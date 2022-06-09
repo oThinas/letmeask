@@ -1,0 +1,16 @@
+.page-error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+  img {
+    margin-bottom: 4rem;
+  }
+
+  h2 {
+    font-size: 4rem;
+    text-shadow: red -0.2rem 0,cyan 0.2rem 0;
+  }
+}

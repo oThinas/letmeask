@@ -33,7 +33,6 @@ export function AdminRoom() {
   const [modalAction, setModalAction] = useState("");
   
   function handleOpenModal() {
-    // TODO: Implementar Modal
     setModalIsShow(true);
     setModalTitle("Encerrar sala");
     setModalHasSubtitle(true);
